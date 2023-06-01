@@ -5,6 +5,17 @@ interface AnimeResult {
   id: number
   title: string
   episodes: number
+  status: string
+  year: number
+  themes: string[]
+  studio: string[]
+  producers: string[]
+  score: number
+  scored_by: number
+  images: string[]
+  genres: string[]
+  rating: string
+  synopsis: string
 }
 
 export default function SearchBar() {
