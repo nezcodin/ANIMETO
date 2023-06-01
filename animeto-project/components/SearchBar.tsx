@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface AnimeResult {
   id: number
@@ -12,7 +13,13 @@ interface AnimeResult {
   producers: string[]
   score: number
   scored_by: number
-  images: string[]
+  images: {
+    jpg: {
+      image_url: string
+      large_image_url: string
+      small_image_url: string
+    }
+  }
   genres: string[]
   rating: string
   synopsis: string
@@ -42,7 +49,13 @@ export default function SearchBar() {
         <div
           key={animeResult.id}
         >
+          <Image
+            width={200}
+            height={300}
+            src={animeResult.images.jpg.large_image_url}
+            alt="anime-poster" />
           <p>{animeResult.title}</p>
+
         </div>
       ))}
     </div>
