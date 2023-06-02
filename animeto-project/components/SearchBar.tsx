@@ -62,7 +62,10 @@ export default function SearchBar() {
       </div>
       {animeResults.length > 0 ? (
         animeResults.map((animeResult) => (
-          <div key={animeResult.id}>
+          <div
+            key={animeResult.id}
+            className="p-10"
+          >
             <Image
               width={200}
               height={300}
@@ -70,6 +73,11 @@ export default function SearchBar() {
               alt="anime-poster"
             />
             <p>{animeResult.title}</p>
+            <p>Episodes: {animeResult.episodes}</p>
+            <p>Released: {animeResult.year}</p>
+            <p>{animeResult.status}</p>
+            <p>{animeResult.scored_by} fans rated this a {animeResult.score}!</p>
+            <p>Synopsis: {animeResult.synopsis}</p>
           </div>
         ))
       ) : (
