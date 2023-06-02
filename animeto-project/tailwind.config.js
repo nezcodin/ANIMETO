@@ -10,7 +10,9 @@ module.exports = {
       colors: {
         bg: '#F5F0BB',
         buttonBg: '#73A9AD',
-        buttonText: '#35696D'
+        buttonText: '#35696D',
+        containerBg: '#DBDFAA',
+        containerTop: '#B3C890'
       },
       fontFamily: {
         bebasneue: ['BebasNeue', 'sans-serif'],

@@ -32,21 +32,21 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-bg min-h-screen min-w-screen flex justify-center items-center">
+    <div className="bg-bg min-h-screen min-w-screen flex justify-center items-center flex-col">
       <h1
-        className="font-bebasneue"
+        className="font-bebasneue text-8xl text-containerTop"
       >ANIMETO</h1>
       {isMobile ? (
-        <p className="font-oswaldlight">click <Link href="/search" className="decoration underline">here</Link> to get started</p>
+        <p className="font-oswaldlight text-2xl text-buttonBg">click <Link href="/search" className="decoration underline text-buttonText cursor-pointer">here</Link> to get started</p>
       ) : (
         <p
           onMouseEnter={handleHover}
           onMouseLeave={() => setIsHovered(false)}
-          className={isHovered ? "font-oswaldlight text-xl transition-all duration-500 ease-out cursor-wait" : "font-oswaldlight text-md transition-all duration-500 ease-in"}
+          className={isHovered ? "font-oswaldlight text-buttonBg text-4xl transition-all duration-500 ease-out cursor-wait" : "font-oswaldlight text-buttonBg text-3xl transition-all duration-500 ease-in"}
         >
           hover over me to get started</p>
       )
       }
-    </div >
+    </div>
   )
 }
