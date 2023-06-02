@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Home() {
 
   const [isMobile, setIsMobile] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,16 +24,27 @@ export default function Home() {
     };
   }, []);
 
+  const handleHover = () => {
+    setIsHovered(true)
+    setTimeout(() => {
+      router.push("/search")
+    }, 1000)
+  }
+
   return (
     <div className="bg-bg min-h-screen min-w-screen flex justify-center items-center">
       <h1>ANIMETO</h1>
       {isMobile ? (
-        <p>click here to get started</p>
+        <p>click <Link href="/search" className="decoration underline">here</Link> to get started</p>
       ) : (
-        <p>hover over me to get started</p>
-      )}
-    </div>
+        <p
+          onMouseEnter={handleHover}
+          onMouseLeave={() => setIsHovered(false)}
+          className={isHovered ? "text-xl transition-all duration-500 ease-out cursor-wait" : "text-md transition-all duration-500 ease-in"}
+        >
+          hover over me to get started</p>
+      )
+      }
+    </div >
   )
 }
-
-// if w-screen < lg screen => 'click to get started'; element click -> take to search page (link) : 'hover to get started'; element hover -> take to search page (link)
