@@ -33,14 +33,16 @@ export default function Home() {
 
   return (
     <div className="bg-bg min-h-screen min-w-screen flex justify-center items-center">
-      <h1>ANIMETO</h1>
+      <h1
+        className="font-bebasneue"
+      >ANIMETO</h1>
       {isMobile ? (
-        <p>click <Link href="/search" className="decoration underline">here</Link> to get started</p>
+        <p className="font-oswaldlight">click <Link href="/search" className="decoration underline">here</Link> to get started</p>
       ) : (
         <p
           onMouseEnter={handleHover}
           onMouseLeave={() => setIsHovered(false)}
-          className={isHovered ? "text-xl transition-all duration-500 ease-out cursor-wait" : "text-md transition-all duration-500 ease-in"}
+          className={isHovered ? "font-oswaldlight text-xl transition-all duration-500 ease-out cursor-wait" : "font-oswaldlight text-md transition-all duration-500 ease-in"}
         >
           hover over me to get started</p>
       )

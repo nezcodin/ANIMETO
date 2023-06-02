@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('./fonts/BebasNeue/BebasNeue-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldBold';
+  src: url('./fonts/Oswald/Oswald-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldExtraLight';
+  src: url('./fonts/Oswald/Oswald-ExtraLight.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldLight';
+  src: url('./fonts/Oswald/Oswald-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldMedium';
+  src: url('./fonts/Oswald/Oswald-Medium.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldRegular';
+  src: url('./fonts/Oswald/Oswald-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldSemibold';
+  src: url('./fonts/Oswald/Oswald-SemiBold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
