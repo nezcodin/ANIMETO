@@ -12,7 +12,8 @@ module.exports = {
         buttonBg: '#73A9AD',
         buttonText: '#35696D',
         containerBg: '#DBDFAA',
-        containerTop: '#B3C890'
+        containerTop: '#B3C890',
+        containerText: '#273117'
       },
       fontFamily: {
         bebasneue: ['BebasNeue', 'sans-serif'],
@@ -22,6 +23,17 @@ module.exports = {
         oswaldmedium: ['OswaldMedium', 'sans-serif'],
         oswaldregular: ['OswaldRegular', 'sans-serif'],
         oswaldsemibold: ['OswaldSemibold', 'sans-serif']
+      },
+      screens: {
+
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+
+        // 'xs': '360px',
+        // 'xxs': '280px'
       }
     },
   },

@@ -47,16 +47,23 @@ export default function SearchBar() {
   console.log(animeResults)
 
   return (
-    <div>
+    <div
+      className="flex flex-col justify-center items-center p-5 font-oswaldlight text-lg"
+    >
       <div>
-        <form onSubmit={handleSearch}>
+        <form
+          onSubmit={handleSearch}
+          className="p-5"
+        >
           <input
             placeholder="What do you want to search?"
             value={textSearch}
             onChange={(e) => setTextSearch(e.target.value)}
+            className="bg-containerBg text-containerText placeholder-containerTop rounded-xl p-2 mr-5 outline-none pl-3 w-full md:w-96"
           />
           <button
             type="submit"
+            className="bg-buttonBg p-2 rounded-xl text-buttonText font-bebasneue"
           >Search</button>
         </form>
       </div>
@@ -82,7 +89,7 @@ export default function SearchBar() {
         ))
       ) : (
         <div>
-          <p>Hm, there doesn&apos;t seem to be any results. Try searching for something else.</p>
+          <p className="text-containerText text-center mt-10">Hm, there doesn&apos;t seem to be any results. Try searching for something else.</p>
         </div>
       )}
     </div>
