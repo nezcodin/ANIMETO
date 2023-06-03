@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Icon } from '@iconify/react';
+import Link from "next/link";
 
 interface AnimeResult {
   id: number
@@ -30,6 +31,7 @@ export default function SearchBar() {
 
   const [animeResults, setAnimeResults] = useState<AnimeResult[]>([])
   const [textSearch, setTextSearch] = useState('')
+  const [isMobile, setIsMobile] = useState(false)
 
   const getResults = async () => {
     try {
@@ -47,6 +49,22 @@ export default function SearchBar() {
 
   console.log(animeResults)
 
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth
+      setIsMobile(screenWidth < 1024)
+    };
+
+    handleResize(); // Check initial screen width
+
+    // Update screen width on component updates
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    };
+  }, []);
+
   return (
     <div
       className="flex flex-col justify-center items-center p-5 font-oswaldlight text-lg"
@@ -54,7 +72,7 @@ export default function SearchBar() {
       <div>
         <form
           onSubmit={handleSearch}
-          className="p-5 flex justify-center items-center"
+          className="p-5 flex justify-center items-center mb-5"
         >
           <input
             placeholder="What do you want to search?"
@@ -77,20 +95,59 @@ export default function SearchBar() {
         animeResults.map((animeResult) => (
           <div
             key={animeResult.id}
-            className="p-10"
+            className="p-8 mb-10 bg-containerBg text-lg w-11/12"
           >
-            <Image
-              width={200}
-              height={300}
-              src={animeResult.images.jpg.large_image_url}
-              alt="anime-poster"
-            />
-            <p>{animeResult.title}</p>
-            <p>Episodes: {animeResult.episodes}</p>
-            <p>Released: {animeResult.year}</p>
-            <p>{animeResult.status}</p>
-            <p>{animeResult.scored_by} fans rated this a {animeResult.score}!</p>
-            <p>Synopsis: {animeResult.synopsis}</p>
+            {isMobile ? (
+              <div>
+                <div
+                  className="mb-5 flex justify-center items-center xxs:flex-col md:flex-row"
+                >
+                  <Image
+                    width={200}
+                    height={300}
+                    src={animeResult.images.jpg.large_image_url}
+                    alt="anime-poster"
+                    className="flex justify-center items-center"
+                  />
+                  <div
+                    className="flex flex-col justify-center items-center text-center p-3"
+                  >
+                    <p
+                      className="font-bebasneue text-2xl p-2"
+                    >{animeResult.title}</p>
+                    <p
+                      className="p-2"
+                    >Episodes: {animeResult.episodes}</p>
+                    <p
+                      className="p-2"
+                    >{animeResult.status}</p>
+                  </div>
+                </div>
+                <p
+                  className="line-clamp-5"
+                >Synopsis: {animeResult.synopsis}</p>
+                <Link
+                  href="#"
+                  className="text-buttonText decoration underline flex justify-end mt-4"
+                >Read More...</Link>
+              </div>
+            ) : (
+              <div>
+                <Image
+                  width={200}
+                  height={300}
+                  src={animeResult.images.jpg.large_image_url}
+                  alt="anime-poster"
+                />
+                <p>{animeResult.title}</p>
+                <p>Episodes: {animeResult.episodes}</p>
+                <p>Released: {animeResult.year}</p>
+                <p>{animeResult.status}</p>
+                <p>{animeResult.scored_by} fans rated this a {animeResult.score}!</p>
+                <p>Synopsis: {animeResult.synopsis}</p>
+              </div>
+            )}
+
           </div>
         ))
       ) : (
@@ -100,6 +157,4 @@ export default function SearchBar() {
       )}
     </div>
   )
-
 }
-

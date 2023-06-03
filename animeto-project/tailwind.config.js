@@ -32,8 +32,8 @@ module.exports = {
         'xl': '1280px',
         '2xl': '1536px',
 
-        // 'xs': '360px',
-        // 'xxs': '280px'
+        'xs': '360px',
+        'xxs': '280px'
       }
     },
   },
