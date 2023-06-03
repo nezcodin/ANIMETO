@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import Image from "next/image";
+import { Icon } from '@iconify/react';
 
 interface AnimeResult {
   id: number
@@ -53,18 +54,23 @@ export default function SearchBar() {
       <div>
         <form
           onSubmit={handleSearch}
-          className="p-5"
+          className="p-5 flex justify-center items-center"
         >
           <input
             placeholder="What do you want to search?"
             value={textSearch}
             onChange={(e) => setTextSearch(e.target.value)}
-            className="bg-containerBg text-containerText placeholder-containerTop rounded-xl p-2 mr-5 outline-none pl-3 w-full md:w-96"
+            className="bg-containerBg text-containerText placeholder-containerTop rounded-3xl p-2 mr-3 outline-none pl-3 max-sm:w-52 md:w-96"
           />
           <button
             type="submit"
-            className="bg-buttonBg p-2 rounded-xl text-buttonText font-bebasneue"
-          >Search</button>
+            className="text-buttonText"
+          >
+            <Icon
+              icon="iconamoon:search-light"
+              className="text-4xl"
+            />
+          </button>
         </form>
       </div>
       {animeResults.length > 0 ? (
