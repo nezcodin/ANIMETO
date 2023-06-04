@@ -71,7 +71,7 @@ export default function SearchBar() {
       {animeResults.length > 0 ? (
         animeResults.map((animeResult) => (
           <div
-            key={animeResult.id}
+            key={animeResult.mal_id}
             className="p-8 mb-10 bg-containerBg text-lg w-11/12"
           >
             {isMobile ? (
