@@ -29,14 +29,14 @@ export default function Result() {
     }
 
     const timeout = setTimeout(() => {
-      setShowTimeoutMessage(true)
+      if (!animeResult) {
+        setShowTimeoutMessage(true)
+      }
     }, 10_000)
 
     return () => clearTimeout(timeout)
 
-  }, [mal_id])
-
-  console.log(animeResult)
+  }, [mal_id, animeResult])
 
   if (showTimeoutMessage) {
     return <p>Sorry, this page has timed out. Please go back to the previous page.</p>;
