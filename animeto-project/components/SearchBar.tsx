@@ -3,29 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Icon } from '@iconify/react';
 import Link from "next/link";
-
-interface AnimeResult {
-  id: number
-  title: string
-  episodes: number
-  status: string
-  year: number
-  themes: string[]
-  studio: string[]
-  producers: string[]
-  score: number
-  scored_by: number
-  images: {
-    jpg: {
-      image_url: string
-      large_image_url: string
-      small_image_url: string
-    }
-  }
-  genres: string[]
-  rating: string
-  synopsis: string
-}
+import { AnimeResult } from "../types/types"
 
 export default function SearchBar() {
 
@@ -47,8 +25,6 @@ export default function SearchBar() {
     getResults();
   };
 
-  console.log(animeResults)
-
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth
@@ -64,6 +40,7 @@ export default function SearchBar() {
       window.removeEventListener("resize", handleResize)
     };
   }, []);
+  // keeping the dependency array empty otherwise there is potential for too many requests per second to happen and result in improper search results
 
   return (
     <div
@@ -127,7 +104,7 @@ export default function SearchBar() {
                   className="line-clamp-5"
                 >Synopsis: {animeResult.synopsis}</p>
                 <Link
-                  href="#"
+                  href={`/results/${animeResult.mal_id}`}
                   className="text-buttonText decoration underline flex justify-end mt-4"
                 >Read More...</Link>
               </div>
