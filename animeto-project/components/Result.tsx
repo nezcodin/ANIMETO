@@ -61,55 +61,76 @@ export default function Result() {
   return (
     <div className="flex flex-col justify-center items-center text-lg font-oswaldlight p-5">
       {animeResult && (
-        <div className="bg-containerBg">
-          <Image
-            width={200}
-            height={300}
-            src={animeResult.images?.jpg?.large_image_url}
-            alt="anime-poster"
+        <div
+          className="bg-containerBg p-8 w-11/12 flex flex-col"
+        >
+          <div
             className="flex justify-center items-center"
-          />
-          <div>
-            <div>
-              <p>{animeResult.title}</p>
-              <p>Episodes: {animeResult.episodes}</p>
-              <p>Released: {animeResult.year}</p>
+          >
+            <Image
+              width={200}
+              height={300}
+              src={animeResult.images?.jpg?.large_image_url}
+              alt="anime-poster"
+              className="flex justify-center items-center p-3"
+            />
+          </div>
+          <p
+            className="font-bebasneue text-buttonBg text-2xl p-2 flex justify-center items-center"
+          >{animeResult.title}</p>
+          <div
+            className="flex p-2 flex-col justify-center"
+          >
+            <div
+              className="flex justify-between pb-2"
+            >
+              <p className="text-left">Episodes: {animeResult.episodes}</p>
+              <p className="text-right">{animeResult.status}</p>
             </div>
-            <div>
-              <p>{animeResult.scored_by} fans rated this {animeResult.score}!</p>
-            </div>
-            <div>
-              {genres.length > 1 ? (
-                <p>Genres: {genres.map((genre) => genre.name).join(", ")}</p>
-              ) : (
-                <p>Genre: {genres.map((genre) => genre.name)}</p>
-              )}
-              {themes.length > 1 ? (
-                <p>Themes: {themes.map((theme) => theme.name).join(", ")}</p>
-              ) : (
-                <p>Theme: {themes.map((theme) => theme.name)}</p>
-              )}
+            <div
+              className="flex justify-between"
+            >
+              <p className="text-left pr-5">Released: {animeResult.year}</p>
+              <p className="text-right pl-5">Rating: {animeResult.rating}</p>
             </div>
           </div>
-          <div>
-            <div>
-              <p>{animeResult.status}</p>
-              <p>Rating: {animeResult.rating}</p>
-            </div>
-            <div>
-              {studios.length > 1 ? (
-                <p>Studios: {studios.map((studio) => studio.name).join(", ")}</p>
-              ) : (
-                <p>Studio: {studios.map((studio) => studio.name)}</p>
-              )}
-              {producers.length > 1 ? (
-                <p>Producers: {producers.map((producer) => producer.name).join(", ")}</p>
-              ) : (
-                <p>Producer: {producers.map((producer) => producer.name)}</p>
-              )}
-            </div>
+          <div
+            className="flex p-2"
+          >
+            <p>{animeResult.scored_by} fans rated this {animeResult.score}!</p>
           </div>
-          <div>
+          <div
+            className="flex flex-col p-2"
+          >
+            {genres.length > 1 ? (
+              <p className="text-left">Genres: {genres.map((genre) => genre.name).join(", ")}</p>
+            ) : (
+              <p className="text-left">Genre: {genres.map((genre) => genre.name)}</p>
+            )}
+            {themes.length > 1 ? (
+              <p className="text-left">Themes: {themes.map((theme) => theme.name).join(", ")}</p>
+            ) : (
+              <p className="text-left">Theme: {themes.map((theme) => theme.name)}</p>
+            )}
+          </div>
+
+          <div
+            className="flex flex-col p-2"
+          >
+            {studios.length > 1 ? (
+              <p className="text-left">Studios: {studios.map((studio) => studio.name).join(", ")}</p>
+            ) : (
+              <p className="text-left">Studio: {studios.map((studio) => studio.name)}</p>
+            )}
+            {producers.length > 1 ? (
+              <p className="text-left">Producers: {producers.map((producer) => producer.name).join(", ")}</p>
+            ) : (
+              <p className="text-left">Producer: {producers.map((producer) => producer.name)}</p>
+            )}
+          </div>
+          <div
+            className="flex flex-col justify-center items-center p-2"
+          >
             <p>Synopsis: {animeResult.synopsis}</p>
           </div>
         </div>
