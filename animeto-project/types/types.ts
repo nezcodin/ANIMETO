@@ -21,3 +21,8 @@ export interface AnimeResult {
   rating: string
   synopsis: string
 }
+
+export interface Genre {
+  id: number
+  name: string
+}

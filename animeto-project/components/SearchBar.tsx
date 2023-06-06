@@ -3,16 +3,41 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Icon } from '@iconify/react';
 import Link from "next/link";
-import { AnimeResult } from "../types/types"
+import { AnimeResult, Genre } from "../types/types"
+import Filter from "./Filter";
 
 export default function SearchBar() {
 
   const [animeResults, setAnimeResults] = useState<AnimeResult[]>([])
   const [textSearch, setTextSearch] = useState('')
+  const [genres, setGenres] = useState<Genre[]>([])
+  const [selectedGenres, setSelectedGenres] = useState<number[]>([])
   const [isMobile, setIsMobile] = useState(false)
+
+
+  https://api.jikan.moe/v4/genres/anime
+
+  // useEffect(() => {
+  //   getResults()
+  // }, [textSearch, selectedGenres])
+
+  useEffect(() => {
+    const getGenres = async () => {
+      try {
+        const { data } = await axios.get<{ genres: Genre[] }>('https://api.jikan.moe/v4/genres/anime')
+        console.log(data)
+        setGenres(data.data)
+      } catch (error) {
+        console.log('There was an issue fetching genres.')
+      }
+    }
+
+    getGenres()
+  }, [])
 
   const getResults = async () => {
     try {
+      const genreQuery = selectedGenres.length > 0 ? `&genre=${selectedGenres.join(',')}` : ''
       const { data } = await axios.get(`https://api.jikan.moe/v4/anime?q=${textSearch}&sfw`)
       setAnimeResults(data.data)
     } catch (error) {
@@ -20,10 +45,22 @@ export default function SearchBar() {
     }
   }
 
+  const handleGenreChange = (genreId: number) => {
+    if (selectedGenres.includes(genreId)) {
+      setSelectedGenres(selectedGenres.filter((g) => g !== genreId));
+    } else {
+      setSelectedGenres([...selectedGenres, genreId]);
+    }
+  }
+
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     getResults();
   };
+
+  // const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setTextSearch(e.target.value)
+  // }
 
   useEffect(() => {
     const handleResize = () => {
@@ -68,6 +105,11 @@ export default function SearchBar() {
           </button>
         </form>
       </div>
+      <Filter
+        genres={genres}
+        selectedGenres={selectedGenres}
+        handleGenreChange={handleGenreChange}
+      />
       {animeResults.length > 0 ? (
         animeResults.map((animeResult) => (
           <div
