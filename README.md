@@ -64,6 +64,6 @@ Let's chat!
 <summary>
 Here are the best ways to reach me.
 </summary>
-- [LinkedIn](https://www.linkedin.com/in/charlottefusco/)
-- Email: ch.fusco104@gmail.com
+  -[LinkedIn](https://www.linkedin.com/in/charlottefusco/)
+  -Email: ch.fusco104@gmail.com
 </details>
