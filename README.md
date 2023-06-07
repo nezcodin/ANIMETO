@@ -60,10 +60,9 @@ Want to check out what this project used to look like? Here's a link to the old 
 
 Let's chat!
 <br>
-<details>
-<summary>
+<br>
 Here are the best ways to reach me.
-</summary>
-  -[LinkedIn](https://www.linkedin.com/in/charlottefusco/)
-  -Email: ch.fusco104@gmail.com
-</details>
+
+- [LinkedIn](https://www.linkedin.com/in/charlottefusco/)
+- Email: <ch.fusco104@gmail.com>
+  
