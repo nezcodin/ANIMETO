@@ -16,25 +16,25 @@ The user will be able to:
 
 - [x] Search for anime
 - [x] View information about the anime (basic and in-depth)
-- [] Search with filters
+- [ ] Search with filters
 
 ## Post MVP
 
 The user will be able to enjoy more in-depth features such as:
 
-- [] Creating an account
-- [] Being able to save anime to a different array of lists (generic and personalized)
-- [] Having full CRUD functionality within lists
+- [ ] Creating an account
+- [ ] Being able to save anime to a different array of lists (generic and personalized)
+- [ ] Having full CRUD functionality within lists
 
 ## Stretch Goals
 
 The user will be able to enjoy features typical of a fully fledged experience such as:
 
-- [] Having some sort of recommendation feature based on mood or genres
-- [] Creating a list of anime already seen so that it doesn't show up in search results
-- [] Re-arrange items within lists via draggable components
-- [] Being able to choose from different color schemes to use the app with
-- [] Having the same features for manga
+- [ ] Having some sort of recommendation feature based on mood or genres
+- [ ] Creating a list of anime already seen so that it doesn't show up in search results
+- [ ] Re-arrange items within lists via draggable components
+- [ ] Being able to choose from different color schemes to use the app with
+- [ ] Having the same features for manga
 
 ## Wireframes
 
@@ -61,9 +61,9 @@ Want to check out what this project used to look like? Here's a link to the old 
 Let's chat!
 <br>
 <details>
-Here are the best ways to reach me.
 <summary>
+Here are the best ways to reach me.
+</summary>
 - [LinkedIn](https://www.linkedin.com/in/charlottefusco/)
 - Email: ch.fusco104@gmail.com
-</summary>
 </details>
