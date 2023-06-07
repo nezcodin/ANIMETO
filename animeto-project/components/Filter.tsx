@@ -8,19 +8,19 @@ interface FilterProps {
 }
 
 export default function Filter({ genres, selectedGenres, handleGenreChange }: FilterProps) {
-
   const handleCheckboxChange = (genreId: number) => {
-    if (selectedGenres.includes(genreId)) {
-      handleGenreChange(genreId);
+    const updatedGenres = [...selectedGenres];
+    if (updatedGenres.includes(genreId)) {
+      const index = updatedGenres.indexOf(genreId);
+      updatedGenres.splice(index, 1);
     } else {
-      handleGenreChange(genreId);
+      updatedGenres.push(genreId);
     }
-  }
+    handleGenreChange(updatedGenres);
+  };
 
   return (
-    <div
-      className="bg-pink-200"
-    >
+    <div className="bg-pink-200">
       {genres.map((genre) => (
         <label key={genre.id}>
           <input
@@ -32,5 +32,5 @@ export default function Filter({ genres, selectedGenres, handleGenreChange }: Fi
         </label>
       ))}
     </div>
-  )
+  );
 }
