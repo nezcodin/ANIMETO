@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Icon } from '@iconify/react';
 import Link from "next/link";
 import { AnimeResult, Genre } from "../types/types"
-import Filter from "./Filter";
+// import Filter from "./Filter";
 
 export default function SearchBar() {
 
@@ -13,6 +13,14 @@ export default function SearchBar() {
   const [genres, setGenres] = useState<Genre[]>([])
   const [selectedGenres, setSelectedGenres] = useState<number[]>([])
   const [isMobile, setIsMobile] = useState(false)
+
+
+  // get the search results from the api and assign it to a variable
+  // map over the data and filter it based on w/e (focus on genre for now)
+  // api call for all genres and assign it to a variable(setGenres)
+  // have a checkbox created for every genre
+  // click a checkbox -> that parameter is added to the filter mapping function (i am thinking something like searchResults.includes('Action', 'Romance'))
+  // show the results
 
 
   https://api.jikan.moe/v4/genres/anime
@@ -105,11 +113,11 @@ export default function SearchBar() {
           </button>
         </form>
       </div>
-      <Filter
+      {/* <Filter
         genres={genres}
         selectedGenres={selectedGenres}
         handleGenreChange={handleGenreChange}
-      />
+      /> */}
       {animeResults.length > 0 ? (
         animeResults.map((animeResult) => (
           <div
@@ -164,6 +172,10 @@ export default function SearchBar() {
                 <p>{animeResult.status}</p>
                 <p>{animeResult.scored_by} fans rated this a {animeResult.score}!</p>
                 <p>Synopsis: {animeResult.synopsis}</p>
+                <Link
+                  href={`/results/${animeResult.mal_id}`}
+                  className="text-buttonText decoration underline flex justify-end mt-4"
+                >Read More...</Link>
               </div>
             )}
 
